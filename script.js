@@ -61,6 +61,10 @@ const hiragana = [
   { kana: "ん", romaji: "n" }
 ];
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function oneByOne() {
     card.innerHTML = `<div id="card" class="kana" data-answer=${hiragana[counter].romaji}> ${hiragana[counter].kana}</div>`;
 
@@ -71,4 +75,9 @@ function oneByOne() {
     }
 
     console.log(counter)
+}
+
+function getRandomHiragana() {
+    randomNumber = getRandomInt(hiragana.length)
+    card.innerHTML = `<div id="card" class="kana" data-answer=${hiragana[randomNumber].romaji}> ${hiragana[randomNumber].kana}</div>`;
 }
