@@ -1,0 +1,16 @@
+header {
+  border-bottom: 3px solid black;
+}
+
+footer {
+  border-top: 3px solid black;
+}
+
+main {
+    text-align: center;
+}
+
+.kana {
+    font-size: 60px;
+
+}
