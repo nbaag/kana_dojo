@@ -1,5 +1,7 @@
 const card = document.getElementById("card")
 
+let counter = 1
+
 const hiragana = [
   { kana: "あ", romaji: "a" },
   { kana: "い", romaji: "i" },
@@ -59,7 +61,14 @@ const hiragana = [
   { kana: "ん", romaji: "n" }
 ];
 
+function oneByOne() {
+    card.innerHTML = `<div id="card" class="kana" data-answer=${hiragana[counter].romaji}> ${hiragana[counter].kana}</div>`;
 
-card.innerHTML = `<div id="card" class="kana" data-answer=${hiragana[1].romaji}> ${hiragana[1].kana}</div>`;
+    if (counter >= hiragana.length -1) {
+        counter = 0
+    } else {
+        counter++
+    }
 
-
+    console.log(counter)
+}
