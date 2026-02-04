@@ -66,7 +66,8 @@ function getRandomInt(max) {
 }
 
 function oneByOne() {
-    card.innerHTML = `<div id="card" class="kana" data-answer=${hiragana[counter].romaji}> ${hiragana[counter].kana}</div>`;
+    card.textContent = hiragana[counter].kana;
+    card.dataset.answer = hiragana[counter].romaji;
 
     if (counter >= hiragana.length -1) {
         counter = 0
@@ -79,5 +80,6 @@ function oneByOne() {
 
 function getRandomHiragana() {
     randomNumber = getRandomInt(hiragana.length)
-    card.innerHTML = `<div id="card" class="kana" data-answer=${hiragana[randomNumber].romaji}> ${hiragana[randomNumber].kana}</div>`;
+    card.textContent = hiragana[randomNumber].kana;
+    card.dataset.answer = hiragana[randomNumber].romaji;
 }
