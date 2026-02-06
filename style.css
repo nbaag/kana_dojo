@@ -16,3 +16,8 @@ main {
     font-size: 60px;
 
 }
+
+#check_text {
+  font-size: 30px;
+  display: none;
+}

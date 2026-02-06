@@ -1,6 +1,7 @@
-const card = document.getElementById("card")
-const answer_input = document.getElementById("answer_input")
-let counter = 1
+const card = document.getElementById("card");
+const answer_input = document.getElementById("answer_input");
+const check_text = document.getElementById("check_text");
+let counter = 1;
 
 const hiragana = [
   { kana: "あ", romaji: "a" },
@@ -66,10 +67,13 @@ function getRandomInt(max) {
 }
 
 function checkAnswer(){
+  check_text.style.display = 'block'
   if (answer_input.value == card.dataset.answer) {
-    console.log("good")
+    check_text.textContent = 'Good';
+    check_text.style.color = 'green'
   } else {
-    console.log("bad")
+    check_text.textContent = 'Bad';
+    check_text.style.color = 'red'
   }
 }
 
@@ -78,16 +82,16 @@ function oneByOne() {
     card.dataset.answer = hiragana[counter].romaji;
 
     if (counter >= hiragana.length -1) {
-        counter = 0
+        counter = 0;
     } else {
-        counter++
+        counter++;
     }
 
     console.log(counter)
 }
 
 function getRandomHiragana() {
-    randomNumber = getRandomInt(hiragana.length)
+    randomNumber = getRandomInt(hiragana.length);
     card.textContent = hiragana[randomNumber].kana;
     card.dataset.answer = hiragana[randomNumber].romaji;
 }
