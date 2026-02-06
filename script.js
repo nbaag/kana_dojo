@@ -1,5 +1,5 @@
 const card = document.getElementById("card")
-
+const answer_input = document.getElementById("answer_input")
 let counter = 1
 
 const hiragana = [
@@ -63,6 +63,14 @@ const hiragana = [
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+function checkAnswer(){
+  if (answer_input.value == card.dataset.answer) {
+    console.log("good")
+  } else {
+    console.log("bad")
+  }
 }
 
 function oneByOne() {

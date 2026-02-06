@@ -1,9 +1,11 @@
 header {
   border-bottom: 3px solid black;
+  margin: 10px;
 }
 
 footer {
   border-top: 3px solid black;
+  margin: 10px;
 }
 
 main {
