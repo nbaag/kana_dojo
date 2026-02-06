@@ -70,28 +70,32 @@ function checkAnswer(){
   check_text.style.display = 'block'
   if (answer_input.value == card.dataset.answer) {
     check_text.textContent = 'Good';
-    check_text.style.color = 'green'
+    check_text.style.color = 'green';
+    answer_input.value = '';
   } else {
     check_text.textContent = 'Bad';
-    check_text.style.color = 'red'
+    check_text.style.color = 'red';
+    answer_input.value = '';
   }
 }
 
 function oneByOne() {
-    card.textContent = hiragana[counter].kana;
-    card.dataset.answer = hiragana[counter].romaji;
+  check_text.textContent = '';
 
-    if (counter >= hiragana.length -1) {
-        counter = 0;
-    } else {
-        counter++;
-    }
+  card.textContent = hiragana[counter].kana;
+  card.dataset.answer = hiragana[counter].romaji;
 
-    console.log(counter)
+  if (counter >= hiragana.length -1) {
+    counter = 0;
+  } else {
+    counter++;
+  }
 }
 
 function getRandomHiragana() {
-    randomNumber = getRandomInt(hiragana.length);
-    card.textContent = hiragana[randomNumber].kana;
-    card.dataset.answer = hiragana[randomNumber].romaji;
+  check_text.textContent = '';
+
+  randomNumber = getRandomInt(hiragana.length);
+  card.textContent = hiragana[randomNumber].kana;
+  card.dataset.answer = hiragana[randomNumber].romaji;
 }
