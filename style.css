@@ -9,12 +9,15 @@ footer {
 }
 
 main {
-    text-align: center;
+  text-align: center;
+}
+
+form {
+  margin: 10px;
 }
 
 .kana {
-    font-size: 60px;
-
+  font-size: 60px;
 }
 
 #check_text {

@@ -1,6 +1,7 @@
 const card = document.getElementById("card");
 const answer_input = document.getElementById("answer_input");
 const check_text = document.getElementById("check_text");
+const submit_form = document.getElementById("submit_form");
 let counter = 1;
 
 const hiragana = [
@@ -99,3 +100,8 @@ function getRandomHiragana() {
   card.textContent = hiragana[randomNumber].kana;
   card.dataset.answer = hiragana[randomNumber].romaji;
 }
+
+submit_form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  checkAnswer();
+})
