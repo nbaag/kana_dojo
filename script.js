@@ -67,46 +67,50 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+function setResult(content, color) {
+  check_text.textContent = content;
+  check_text.style.color = color;
+  answer_input.value = '';
+}
+
+function setAnswer(set) {
+  card.textContent = hiragana[set].kana;
+  card.dataset.answer = hiragana[set].romaji;
+}
+
 function checkAnswer(){
-  check_text.style.display = 'block'
-  if (answer_input.value == card.dataset.answer) {
-    check_text.textContent = 'Good';
-    check_text.style.color = 'green';
-    answer_input.value = '';
+  check_text.style.display = 'block';
+
+  if (answer_input.value.trim().toLowerCase() === card.dataset.answer) {
+    setResult("Good", "green");
   } else {
-    check_text.textContent = 'Bad';
-    check_text.style.color = 'red';
-    answer_input.value = '';
+    setResult("Bad", "red");
   }
 }
 
 function oneByOne() {
   check_text.textContent = '';
+  setAnswer(counter)
 
-  card.textContent = hiragana[counter].kana;
-  card.dataset.answer = hiragana[counter].romaji;
-
-  if (counter >= hiragana.length -1) {
+  if (counter >= hiragana.length - 1) {
     counter = 0;
   } else {
     counter++;
   }
+
+  answer_input.focus();
 }
 
 function getRandomHiragana() {
   check_text.textContent = '';
 
-  randomNumber = getRandomInt(hiragana.length);
-  card.textContent = hiragana[randomNumber].kana;
-  card.dataset.answer = hiragana[randomNumber].romaji;
+  const randomNumber = getRandomInt(hiragana.length);
+  setAnswer(randomNumber)
+
+  answer_input.focus();
 }
 
 submit_form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkAnswer();
-})
-
-document.addEventListener("keydown", (e) => {
-  if (e.key = "r") getRandomHiragana();
-  if (e.key = "t") oneByOne();
 })
