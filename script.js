@@ -105,3 +105,8 @@ submit_form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkAnswer();
 })
+
+document.addEventListener("keydown", (e) => {
+  if (e.key = "r") getRandomHiragana();
+  if (e.key = "t") oneByOne();
+})
