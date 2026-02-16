@@ -2,7 +2,9 @@ const card = document.getElementById("card");
 const answer_input = document.getElementById("answer_input");
 const check_text = document.getElementById("check_text");
 const submit_form = document.getElementById("submit_form");
-let counter = 1;
+const rnd_btn = document.getElementById("rnd_btn")
+let counter = 0;
+let mode = "";
 
 const hiragana = [
   { kana: "あ", romaji: "a" },
@@ -63,6 +65,17 @@ const hiragana = [
   { kana: "ん", romaji: "n" }
 ];
 
+function shuffle(array) {
+  let currentIndex = array.length;
+
+  while (currentIndex != 0) {
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
+  }
+}
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -86,6 +99,10 @@ function checkAnswer(){
   } else {
     setResult("Bad", "red");
   }
+
+  setTimeout(() => {
+    oneByOne();
+  }, 1000);
 }
 
 function oneByOne() {
@@ -101,14 +118,22 @@ function oneByOne() {
   answer_input.focus();
 }
 
-function getRandomHiragana() {
-  check_text.textContent = '';
+// function getRandomHiragana() {
+//   check_text.textContent = '';
 
-  const randomNumber = getRandomInt(hiragana.length);
-  setAnswer(randomNumber)
+//   const randomNumber = getRandomInt(hiragana.length);
+//   setAnswer(randomNumber)
 
-  answer_input.focus();
-}
+//   answer_input.focus();
+// }
+
+rnd_btn.addEventListener("click", (e) => {
+  counter = 0;
+  mode = "random";
+  shuffle(hiragana);
+  console.log(hiragana)
+  console.log("randome active")
+})
 
 submit_form.addEventListener("submit", (e) => {
   e.preventDefault();
